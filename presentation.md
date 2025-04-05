@@ -1,3 +1,15 @@
+---
+marp: true
+theme: default
+paginate: true
+header: "声でつながる生成AI"
+footer: "DXルーム 2025.4.5"
+style: |
+  section {
+    font-size: 28px;
+  }
+---
+
 marp: true theme: default paginate: true header: "声でつながる生成AI" footer: "DXルーム 2025.4.5" style: | section { font-size: 28px; } h1 { font-size: 42px; color: 
 #1a73e8; } h2 { font-size: 36px; color: 
 #1a73e8; } h3 { font-size: 32px; color: 
