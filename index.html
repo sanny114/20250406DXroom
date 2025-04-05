@@ -4,30 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>声でつながる生成AI</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@marp-team/marpit@2/css/marpit.min.css">
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-    }
-    .container {
+      padding: 20px;
       max-width: 800px;
       margin: 0 auto;
-      padding: 20px;
     }
-    iframe {
+    .marp-container {
       width: 100%;
-      height: 600px;
-      border: none;
+    }
+    .marp-link {
+      margin-top: 20px;
+      display: block;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>声でつながる生成AI：音声情報を活かした新しい日常</h1>
-    <p>※下のフレームに表示されない場合は、<a href="presentation.md" target="_blank">こちら</a>から直接マークダウンを確認できます。</p>
-    
-    <iframe src="https://markdown-viewer.github.io/#/?embed=true&url=https://sanny114.github.io/20250406DXroom/presentation.md"></iframe>
-  </div>
+  <h1>声でつながる生成AI：音声情報を活かした新しい日常</h1>
+  <p>下のリンクからプレゼンテーションを開始できます：</p>
+  <a href="https://marp-team.github.io/marp-cli-example/" class="marp-link" target="_blank">プレゼンテーションを表示</a>
+  <p>または <a href="presentation.md">マークダウンファイルを直接確認</a></p>
+  
+  <div id="presentation-content" class="marp-container"></div>
+
+  <script>
+    // マークダウンファイルを読み込んで表示
+    fetch('presentation.md')
+      .then(response => response.text())
+      .then(markdown => {
+        document.getElementById('presentation-content').innerHTML = 
+          '<h2>マークダウンプレビュー：</h2>' + marked.parse(markdown);
+      })
+      .catch(error => {
+        console.error('マークダウンの読み込みに失敗しました:', error);
+        document.getElementById('presentation-content').innerHTML = 
+          '<p>マークダウンファイルの読み込みに失敗しました。リポジトリに presentation.md ファイルが存在することを確認してください。</p>';
+      });
+  </script>
 </body>
 </html>
